@@ -67,6 +67,8 @@
   background-color: white;
   font-size: 16px;
   text-align: center;
+  text-decoration: underline;
+
 }
 .go:hover , .arrow-icon:hover{
   cursor: pointer;
@@ -186,5 +188,22 @@
   }
   .hide{
     display: none;
+  }
+  .go{
+    text-decoration: underline;
+  }
+}
+@media (max-width: 700px) {
+  .books{
+    width: 500px;
+  }
+  .acceuil{
+    margin: 0;
+  }
+
+}
+@media (max-width: 600px) {
+  .books{
+    width: 400px;
   }
 }

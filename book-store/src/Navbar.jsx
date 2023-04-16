@@ -12,7 +12,7 @@ export default function Navbar() {
       <div >
         <nav className="navbar">
         <div className="left-nav">
-            <img src={logo} alt="" width="70" />
+            <img src={logo} alt="" width="70" onClick={()=>{navigate('/');}} />
             <hr className="nav-hr hidden "/>
             <h1 className="hidden" onClick={()=>{navigate('/Shop');}} >Shop</h1>
             <hr className="nav-hr hidden" />

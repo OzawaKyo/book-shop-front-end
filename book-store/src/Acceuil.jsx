@@ -2,8 +2,11 @@ import books from '/books.png'
 import book from '/hamid.png'
 import key from '/key2.png'
 import './Acceuil.css'
+import {useNavigate} from 'react-router-dom'
+
 
 export default function Acceuil() {
+  const navigate = useNavigate();
 
     return (
       <div className='acceuil'>
@@ -11,9 +14,9 @@ export default function Acceuil() {
           <h2 className='best'>Best choice</h2>
           <img src={books} alt="" className='books'/>
           <div className='goto hide'>
-            <div class='enter-container'>
-              <input type='text' placeholder='Enter' class='enter-input' />
-              <span class='arrow-icon'>&#10132;</span>
+            <div className='enter-container'>
+              <input type='text' placeholder='Enter' className='enter-input' />
+              <span className='arrow-icon'>&#10132;</span>
             </div>
             <button className='go'>Go to shop</button>       
           </div>
@@ -22,11 +25,11 @@ export default function Acceuil() {
           </div>
         </div>
         <img src={book} alt="" className='book' />
-        <img src={key} alt="" className='no-img'/>
+        <img src={key} alt="" className='no-img digi'/>
         <div className='goto no-img'>
-            <div class='enter-container'>
-              <input type='text' placeholder='Enter' class='enter-input' />
-              <span class='arrow-icon' onClick={()=>{navigate('/Shop');}}>&#10132;</span>
+            <div className='enter-container'>
+              <input type='text' placeholder='Enter' className='enter-input' />
+              <span className='arrow-icon' onClick={()=>{navigate('/Shop');}}>&#10132;</span>
             </div>
             <button className='go' onClick={()=>{navigate('/Shop');}}>Go to shop</button>       
           </div>
