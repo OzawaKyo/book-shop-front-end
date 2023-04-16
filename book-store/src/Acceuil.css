@@ -12,7 +12,7 @@
 .books{
   width: 35em;
 }
-h2{
+.best{
   color: #FB8500;
   font-size: 20px;
 }
@@ -75,7 +75,7 @@ h2{
  width: 500px; 
  margin-top: 5em;
 }
-p{
+.par{
   font-weight: bolder;
   line-height: 1.5;
   letter-spacing: 0.5px;
@@ -90,4 +90,101 @@ p{
   margin-right: 4em;
   margin-top: 5.5em;
   width: 900px;
+  margin-left: 2em;
+
+}
+.no-img{
+  display: none;
+}
+@media (max-width: 1600px) {
+
+  .book{
+    margin-right: 4em;
+    width: 700px;
+    margin-left: 2em;
+  }
+  .acceuil{
+    margin-right:0 ;
+  }
+  .books{
+    width: 500px;
+  }
+}
+@media (max-width: 1400px) {
+  .book{
+    width: 600px;
+    height: 500px;
+    margin-left: 1em;
+    margin-top: 6em;
+  }
+  .acc-left{
+    margin-top: 3em;
+  }
+}
+@media (max-width: 1350px) {
+  .book{
+    width: 600px;
+    height: 450px;
+  }
+  .books{
+    width: 400px;
+  }
+  .parag{
+    width: 450px; 
+    margin-top: 3em;
+   }
+  .acceuil{
+    margin-left: 4em;
+  }
+}
+@media (max-width: 1200px) {
+  .book{
+    margin-right: 2em;
+  }
+  .acceuil{
+    margin-left: 2em;
+  }
+}
+@media (max-width: 1150px) {
+  .book{
+    width: 520px;
+    height: 400px;
+  }
+  .books{
+    width: 370px;
+  }
+  .parag{
+    width: 350px;
+    margin-top: 1em;
+  }
+  .par{
+    font-size: 15px;
+  }
+}
+@media (max-width: 1050px) {
+  .acceuil{
+    flex-direction: column;
+  }
+  .acc-left{
+    align-self: center;
+  }
+  .books{
+    width: 600px;
+    margin-bottom: 2em;
+  }
+  .goto{
+    align-self:center;
+  }
+  .parag{
+    display: none;
+  }
+  .book{
+    display: none;
+  }
+  .no-img{
+    display: block;
+  }
+  .hide{
+    display: none;
+  }
 }
