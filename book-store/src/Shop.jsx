@@ -18,6 +18,8 @@ export default function Shop() {
           })
           .catch(error => console.log(error));
       }, []);
+
+      
   return (
     <div>
       <Navbar />
@@ -35,15 +37,18 @@ export default function Shop() {
           <Fbook />
         </div>
       </div>
+      <div className='lay'>
+      <h1 className='new' align='center'>Spring Collection </h1>
       <div className='layout'>
       {Array.isArray(books) && books.map(book => (
-          <div key={book.id}>
-            <h2>{book.title}</h2>
-            <p>{book.author}</p>
-          </div>
-        ))}
+      <div className='erd'>
+            <img src={book.cover} className='ktab' width='200' height='300px' />
+            <h5 className='smia' align='center'>{book.title}</h5>
       </div>
-      
+))}
+          </div>
+          </div>
     </div>
   );
 }   
+  
