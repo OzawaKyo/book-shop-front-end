@@ -26,7 +26,7 @@ export default function Acceuil() {
         </div>
         <img src={book} alt="" className='book' />
         <img src={key} alt="" className='no-img digi'/>
-        <div className='goto no-img'>
+        <div className='goto hh no-img'>
             <div className='enter-container'>
               <input type='text' placeholder='Enter' className='enter-input' />
               <span className='arrow-icon' onClick={()=>{navigate('/Shop');}}>&#10132;</span>

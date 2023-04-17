@@ -206,4 +206,17 @@
   .books{
     width: 400px;
   }
+  .acc-left{
+    align-items: center;
+  }
+}
+@media (max-width: 500px) {
+  .books{
+    width: 350px;
+  }
+  .hh{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
