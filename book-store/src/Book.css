@@ -1,0 +1,135 @@
+.chri{
+    display: flex;
+    justify-content: center;
+    margin-top: 7em;
+    gap: 7em;
+}
+.limn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dftar{
+    width: 350px;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease-in-out;
+    margin-top: 3.5em;
+}
+.dftar:hover{
+    transform: scale(1.05) translateZ(10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+}
+.smito{
+    font-size: 45px;
+    font-weight: bolder;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+.katib{
+    font-size: 25px;
+    font-weight: bolder;
+    color: #333333;
+    line-height: 1.2;
+}
+.b{
+    color: orange;
+}
+.atmina{
+    display: flex;
+    gap: 2em;
+}
+.taman{
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+.zayd{
+    text-decoration: line-through;
+    color: orange;
+
+}
+.desc{
+    width: 500px;
+    display: flex;
+
+}
+.dots{
+    background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 5px;
+  outline: none;
+  padding: 0;
+  text-decoration: underline;
+}
+.book-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .book-description--full {
+    white-space: normal;
+  }
+.button-39{
+    justify-self: flex-end !important;
+}
+.book-description--full {
+    cursor: pointer;
+    font-size: 14px;
+}
+@media (max-width: 1000px) {
+
+    .chri{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0em;
+        margin-top: 0;
+    }
+    .limn{
+        justify-content: center;
+        align-content: center;
+    }
+    .atmina{
+        justify-content: center;
+    }
+    .katib{
+        align-self: center;
+    }
+    .ster{
+        display: block !important;
+    }
+    
+}
+@media (max-width: 600px) {
+    .chri{
+        gap: 3em;
+    }
+    .dftar{
+        width:320px;
+        height: 450px;
+    }
+    .smito{
+        font-size: 30px;
+    }
+    .katib{
+        font-size: 20px;
+    }
+    .desc{
+        width: 300px;
+        justify-self: center;
+        align-self: center;
+    }
+    
+}
+.ster{
+    width: 280px;
+    display: none;
+}

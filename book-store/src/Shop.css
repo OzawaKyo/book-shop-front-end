@@ -45,7 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-    margin-top: 6em;
+    margin-top: 3em;
     align-items: center;
     justify-content: center;
 }  
@@ -54,6 +54,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 5em ;
+    margin-right: 5em ;
+    margin-bottom: 8em;
+    margin-top: 10em;
 }
 .ktab{
     cursor: pointer;
@@ -108,12 +112,24 @@
         width: 200px;
     }
 }
+@media (max-width: 830px) {
+    .erd{
+        width: 190px;
+    }
+    .ktab{
+        width: 180px;
+        height: 260px;
+    }
+}
 @media (max-width: 800px) {
     .bookz{
         width: 150px;
     }
     .lefty{
         margin-top: 2em;
+    }
+    .lay{
+        margin: 3em;
     }
 }
 @media (max-width: 600px) {
@@ -124,15 +140,17 @@
         font-size:16px
     }
     .bookz{
-        width: 130px;
+        width: 170px;
     }
     .book-list{
         gap: 1em;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 @media (max-width: 550px) {
     .bookz{
-        width: 120px;
+        width: 150px;
     }
 }
 @media (max-width: 500px) {
@@ -141,5 +159,27 @@
     }
     .book-list{
         gap: 0.5em;
+        
+    }
+    .erd{
+        width: 110px;
+        height: 232.34px;
+    }
+    .ktab{
+        width: 110px;
+        height: 150px;
+    }
+    .lay{
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+@media (max-width: 450px) {
+    .bookz{
+        width: 120px;
+    }
+    .book-list{
+        gap: 0.5em;
+        
     }
 }

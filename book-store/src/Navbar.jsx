@@ -1,4 +1,4 @@
-import logo from "/logo2.jpg"
+import logo from "/bookz.png"
 import search from "/search-line.png"
 import './Navbar.css'
 import './buttons.css'
@@ -12,17 +12,18 @@ export default function Navbar() {
       <div >
         <nav className="navbar">
         <div className="left-nav">
-            <img src={logo} alt="" width="70" onClick={()=>{navigate('/');}} />
-            <hr className="nav-hr hidden "/>
             <h1 className="hidden" onClick={()=>{navigate('/Shop');}} >Shop</h1>
             <hr className="nav-hr hidden" />
             <h1 className="hidden">About us</h1>
+            <hr className="nav-hr hidden "/>
         </div>
+        <img src={logo} alt="" width="120" className="logoo" onClick={()=>{navigate('/');}} />
+
         <div className="right-nav">
             <hr className="nav-hr hidden" />
             <img src={search} className="hidden" />
             <hr className="nav-hr hidden" />
-            <button className="button-28">Sign up</button>
+            <button className="button-28 hidden">Sign up</button>
         </div>
       </nav>
       <hr className="nav-hr2"/>

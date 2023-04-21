@@ -6,6 +6,7 @@ import './Shop.css'
 import death from '/death.png'
 import john from '/john.jpg'
 import omni from '/omni.jpg'
+import {useNavigate} from 'react-router-dom'
 
 
 export default function Shop() {
@@ -18,6 +19,7 @@ export default function Shop() {
           })
           .catch(error => console.log(error));
       }, []);
+  const navigate = useNavigate();
 
       
   return (
@@ -42,7 +44,7 @@ export default function Shop() {
       <div className='layout'>
       {Array.isArray(books) && books.map(book => (
       <div className='erd'>
-            <img src={book.cover} className='ktab' width='200' height='300px' />
+            <img onClick={()=>{navigate(`/shop/${book.id}`);}} src={book.cover} className='ktab' width='200' height='300px' />
             <h5 className='smia' align='center'>{book.title}</h5>
       </div>
 ))}
