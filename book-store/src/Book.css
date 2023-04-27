@@ -85,7 +85,7 @@
     font-size: 14px;
 }
 @media (max-width: 1000px) {
-
+    
     .chri{
         flex-direction: column;
         justify-content: center;
@@ -99,12 +99,21 @@
     }
     .atmina{
         justify-content: center;
+        text-align: center;
     }
     .katib{
         align-self: center;
+        text-align: center;
+
     }
     .ster{
         display: block !important;
+    }
+    .smito{
+        align-self: center;
+        justify-content: center;
+        /* max-width: 250px; */
+        text-align: center;
     }
     
 }

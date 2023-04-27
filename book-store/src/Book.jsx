@@ -35,7 +35,7 @@ function Book() {
             <h3 className='katib'>By <span className='b'>{book.author}</span></h3>
             <div className='atmina'>
               <h2 className='taman' >{book.price} MAD</h2>
-              <h2 className='taman zayd'>{parseInt(book.price) *1.8 } MAD</h2>
+              <h2 className='taman zayd'>{parseFloat(parseFloat(book.price) *1.8).toFixed(2) } MAD</h2>
             </div>
             <hr  className='ster'/>
             <div className='desc'>

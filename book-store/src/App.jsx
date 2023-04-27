@@ -4,6 +4,7 @@ import Home from './Home';
 import Shop from './Shop';
 import Add from './Add';
 import Book from './Book';
+import Search from './Search';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <Route path='/Shop' element={<Shop />} />
           <Route path='/Add' element={<Add />} />
           <Route path='/shop/:id' element={<Book />} />
+          <Route path='/Search/:name' element={<Search />} />
         </Routes>
     </Router>
   );
