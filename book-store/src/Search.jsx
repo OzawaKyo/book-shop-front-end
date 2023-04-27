@@ -29,7 +29,7 @@ export default function Search() {
     <div className='search' >
         <Navbar />
             <div className='t9lab'>
-                <h1>Search results for "{name}" :</h1>
+                <h1 className='new w'>Search results for "{name}" :</h1>
                 <div className='layout'>
                 
                     {books.map(book => (

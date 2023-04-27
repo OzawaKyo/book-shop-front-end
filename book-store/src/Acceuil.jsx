@@ -57,7 +57,7 @@ export default function Acceuil() {
       <img src={book} alt='' className='book' />
       <img src={key} alt='' className='no-img digi' />
       <div className='goto hh no-img'>
-        <div className='enter-container'>
+        {/* <div className='enter-container'>
           <input
             type='text'
             placeholder='Search'
@@ -69,7 +69,7 @@ export default function Acceuil() {
           <span className='arrow-icon' onClick={handleSearch}>
             &#10132;
           </span>
-        </div>
+        </div> */}
         <button className='go' onClick={() => navigate('/Shop')}>
           Go to shop
         </button>

@@ -45,10 +45,8 @@ export default function Shop() {
       <div className='layout'>
       {Array.isArray(books) && books.map(book => (
       <div className='erd'>
-            <a target='_blanck' href={(`/shop/${book.id}`)} >
-              <img target='_blank' src={book.cover} className='ktab' width='200' height='300px' />
-            </a>
-            <h5 className='smia' align='center'>{book.title}</h5>
+          <img onClick={()=>{navigate(`/shop/${book.id}`);}} src={book.cover} className='ktab' width='200' height='300px' />
+          <h5 className='smia' align='center'>{book.title}</h5>
       </div>
 ))}
           </div>

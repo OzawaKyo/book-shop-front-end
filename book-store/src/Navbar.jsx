@@ -3,30 +3,69 @@ import search from "/search-line.png"
 import './Navbar.css'
 import './buttons.css'
 import {useNavigate} from 'react-router-dom'
-
+import { useState, useEffect ,useRef } from 'react';
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [isClicked, setClicked] = useState(false);
+  const inputRef = useRef(null);
 
-    return (
-      <div >
-        <nav className="navbar">
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = () => {
+    if (searchValue.trim() !== '') {
+      navigate(`/Search/${searchValue}`);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        handleSearch();
+      
+    }
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (inputRef.current && !inputRef.current.contains(event.target)) {
+        setClicked(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [inputRef]);
+
+  return (
+    <div>
+      <nav className="navbar">
         <div className="left-nav">
-            <h1 className="hidden" onClick={()=>{navigate('/Shop');}} >Shop</h1>
-            <hr className="nav-hr hidden" />
-            <h1 className="hidden">About us</h1>
-            <hr className="nav-hr hidden "/>
+          <h1 className="hidden" onClick={() => { navigate('/Shop'); }}>Shop</h1>
+          <hr className="nav-hr hidden" />
+          <h1 className="hidden">About us</h1>
+          <hr className="nav-hr hidden " />
+          <img src={logo} alt="" width="120" className="logoo hidee " onClick={() => { navigate('/'); }} />
         </div>
-        <img src={logo} alt="" width="120" className="logoo" onClick={()=>{navigate('/');}} />
+        <img src={logo} alt="" width="120" className="logoo hidden" onClick={() => { navigate('/'); }} />
 
         <div className="right-nav">
-            <hr className="nav-hr hidden" />
-            <img src={search} className="hidden" />
-            <hr className="nav-hr hidden" />
-            <button className="button-28 hidden">Sign up</button>
+          <hr className="nav-hr hidden" />
+          {!isClicked ? (
+            <img src={search} className="" onClick={() => setClicked(true)} />
+          ) : (
+            <form className="reff" ref={inputRef} onSubmit={(e) => { e.preventDefault(); }}>
+              <input value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="srch" type="text" name="" id="" />
+            </form>
+          )}
+          <hr className="nav-hr hidden" />
+          <button className="button-28 hidden">Sign up</button>
         </div>
       </nav>
-      <hr className="nav-hr2"/>
-      </div>
-    )
-  }
+      <hr className="nav-hr2" />
+    </div>
+  );
+}

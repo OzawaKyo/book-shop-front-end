@@ -167,6 +167,7 @@
 @media (max-width: 1050px) {
   .acceuil{
     flex-direction: column;
+    gap: 1em;
   }
   .acc-left{
     align-self: center;
@@ -193,6 +194,9 @@
   .go{
     text-decoration: underline;
   }
+  .acc-left{
+    align-items: center;
+  }
 }
 @media (max-width: 700px) {
   .books{
@@ -200,6 +204,9 @@
   }
   .acceuil{
     margin: 0;
+  }
+  .acc-left{
+    align-items: center;
   }
 
 }
