@@ -5,7 +5,8 @@ import Shop from './Shop';
 import Add from './Add';
 import Book from './Book';
 import Search from './Search';
-
+import Log from './Log';
+import Login from './Login';
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/Add' element={<Add />} />
           <Route path='/shop/:id' element={<Book />} />
           <Route path='/Search/:name' element={<Search />} />
+          <Route path='/log' element={<Log />} />
         </Routes>
     </Router>
   );
