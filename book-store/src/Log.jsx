@@ -6,8 +6,8 @@ export default function Log(){
     return(
         <div>
             <Navbar />
-            <Login />
             <SignUp />
+            <Login />
         </div>
     )
 }

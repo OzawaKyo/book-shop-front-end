@@ -25,6 +25,6 @@ export default function AuthDetails(){
     }
 
     return(
-        <div>{authUser ? <p>Signed IN</p>: <p>Signed Out</p>}</div>
+        <div>{authUser ? <p>{`Signed IN as ${authUser.email}` }</p>: <p>Signed Out</p>}</div>
     )
 }

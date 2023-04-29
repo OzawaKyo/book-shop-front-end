@@ -89,9 +89,9 @@ export default function Navbar() {
           )}
           <hr className="nav-hr hidden" />
           {authUser ?
-          <button onClick={() => { userSignOut() }} className="button-28 hidden">Sign out</button>
+          <button onClick={() => { userSignOut() }} className="button-28 ">Sign out</button>
             :
-          <button onClick={() => { navigate('/log '); }} className="button-28 hidden">Sign up</button>
+          <button onClick={() => { navigate('/log '); }} className="button-28 ">Sign up</button>
 
         }
         </div>

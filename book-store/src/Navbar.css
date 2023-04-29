@@ -55,12 +55,24 @@ h1,img{
     }
     .navbar{
         justify-content:space-between;
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-top: 0.5em;
+    }
+    .nav-hr2{
+        margin: 0.5em;
     }
     .hidee{
         display: block !important;
     }
     .srch{
         width: 120px;
+    }
+    body{
+        /* margin: 0; */
+    }
+    .logoo{
+        margin-left: 0;
     }
 }
 .hidee{
