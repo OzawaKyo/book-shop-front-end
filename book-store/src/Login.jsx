@@ -23,23 +23,29 @@ export default function Login(){
 
     return(
         <div>
-        <form onSubmit={SignIn}>
-            <h1>Log in</h1>
+        <form className="signup" onSubmit={SignIn}>
+        <div className="formm">
+            <label className="labell" >Email:</label>
             <input
+                className="inputt"
                 type="email"
-                placeholder="email"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 />
+              <label className="labell" >Password:</label>
+
                 <input
+                className="inputt"
                 type="password"
-                placeholder="password"
+                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 />
-            <button type="submit" >login</button>
+            <button className="button-39 btn" type="submit" >login</button>
+            </div>
         </form>
-        <AuthDetails />
+        {/* <AuthDetails /> */}
         </div>
     )
 }

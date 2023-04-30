@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import {auth} from './firebase'
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import './SignUp.css'
 
 export default function Login(){
     
@@ -22,22 +23,29 @@ export default function Login(){
 
     return(
         <div>
-        <form onSubmit={SignUp}>
-            <h1>Sign Up</h1>
-            <input
-                type="email"
-                placeholder="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                />
-            <button type="submit" >Sign up</button>
-        </form>
+        <form className="signup" onSubmit={SignUp}>
+            
+            <div className="formm">
+              <label className="labell" >Email:</label>
+              <input
+                  className="inputt"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+              />
+              <label className="labell" >Password:</label>
+              <input
+                  className="inputt"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+              />
+              <button className="button-39 btn" type="submit" >Sign up</button>
+  
+            </div>
+         </form>
         </div>
     )
 }
