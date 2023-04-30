@@ -13,3 +13,13 @@
     justify-self: center;
     align-self: center;
 }
+@media (max-width: 650px) {
+    .log{
+        width: 400px !important;
+    }
+}
+@media (max-width: 450px) {
+    .log{
+        width: 350px !important;
+    }
+}

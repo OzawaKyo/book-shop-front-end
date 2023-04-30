@@ -35,3 +35,19 @@
 .btn{
     margin-top: 1em;
 }
+@media (max-width: 650px) {
+    .formm{
+        width: 400px;
+    }
+    .inputt{
+        width: 400px;
+    }
+}
+@media (max-width: 450px) {
+    .formm{
+        width: 350px;
+    }
+    .inputt{
+        width: 350px;
+    }
+}
