@@ -8,8 +8,6 @@ import john from '/john.jpg'
 import omni from '/omni.jpg'
 import {useNavigate } from 'react-router-dom'
 
-
-
 export default function Shop() {
   const [books, setBooks] = useState([]);
   useEffect(() => {
