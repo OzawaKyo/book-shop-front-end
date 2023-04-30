@@ -1,0 +1,79 @@
+.acc{
+    display: flex;
+    flex-direction: column;
+}
+.acc-container{
+    /* background-color: blue; */
+    margin: 5em;
+    display: flex;
+    gap: 4em;
+}
+.acc-left{
+    width: 300px;
+    height: 539px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+}
+.hi{
+    display: flex;
+    /* background-color: gainsboro; */
+    align-items: center;
+    border-bottom:0.5em solid #eee  ;
+}
+.hi2{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.ini{
+    font-weight: bold;
+    background-color: #2d2d2d;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 100%;
+    font-size: 50px;
+    position: relative;
+    left: -1em;
+}
+.iw{
+    margin: 0;
+    font-weight: lighter;
+}
+.iw2{
+    margin: 0;
+    /* max-width: 148px; */
+    /* overflow: hidden; */
+}
+.listt{
+    display: flex;
+    flex-direction: column;
+    /* gap: 1em; */
+}
+.bb{
+    font-size: 18px;
+}
+.b4{
+    display: flex;
+    align-items: center;
+    margin: 1em;
+    align-items: center;
+    gap: 3em;
+    cursor: pointer;
+}
+.b4:hover{
+    text-decoration: underline;
+}
+.logogo{
+    margin-left: 1.5em;
+}
+
+.acc-right{
+    background-color: white;
+    width: 620px;
+    border-radius: 2%;
+    margin-top: 2.7em;
+}

@@ -12,6 +12,7 @@ export default function Login(){
     const [password,setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [error, setError] = useState('');
 
     const SignUp = (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ export default function Login(){
             });
           })
           .catch((error) => {
-            console.log(error);
+            setError(error.message.replace('Firebase: ', ''));
           });
       };
     
@@ -102,6 +103,7 @@ export default function Login(){
               <button className="button-39 btn" onClick={handleSignIn}>Sign Up in with Google</button>
 
          </form>
+         {error && <p>{error}</p>}
         </div>
     )
 }

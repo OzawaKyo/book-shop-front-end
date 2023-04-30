@@ -2,8 +2,10 @@ import Navbar from "./Navbar"
 import Login from "./Login"
 import SignUp from './SignUp'
 import './Log.css'
-import { useState } from "react"
+import { useEffect , useState } from "react";
 import { auth , provider } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { Navigate } from "react-router-dom";
 
 
 export default function Log(){
@@ -16,7 +18,25 @@ export default function Log(){
     const rightHandle = ()=>{
         setLeft(1);
     }
+    const [authUser,setAuthUser]=useState(null);
 
+    useEffect(()=>{
+        const listen = onAuthStateChanged(auth,(user)=>{
+            if(user){
+                setAuthUser(user)
+            }else{
+                setAuthUser(null);
+            }
+        });
+        return()=>{
+            listen();
+        }
+    },[]);
+
+    if (authUser) {
+        // Redirect to /account if user is logged in
+        return <Navigate to="/account" />;
+      }
     return(
         <div>
             <Navbar />
@@ -39,6 +59,7 @@ export default function Log(){
                     <Login />
                 </div> )}
             </div>
+            
         </div>
         </div>
         

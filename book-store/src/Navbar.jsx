@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import { useState, useEffect ,useRef } from 'react';
 import { auth } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-
+import account from '/account.png'
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -89,7 +89,7 @@ export default function Navbar() {
           )}
           <hr className="nav-hr hidden" />
           {authUser ?
-          <button onClick={() => { userSignOut() }} className="button-28 ">Sign out</button>
+          <img onClick={() => { navigate('/account ');}} src={account} width='36' />
             :
           <button onClick={() => { navigate('/log '); }} className="button-28 ">Sign up</button>
 

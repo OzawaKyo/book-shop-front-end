@@ -6,7 +6,7 @@ import Add from './Add';
 import Book from './Book';
 import Search from './Search';
 import Log from './Log';
-import Login from './Login';
+import Account from './Account';
 function App() {
 
   return (
@@ -18,38 +18,10 @@ function App() {
           <Route path='/shop/:id' element={<Book />} />
           <Route path='/Search/:name' element={<Search />} />
           <Route path='/log' element={<Log />} />
+          <Route path='/account' element={<Account />} />
         </Routes>
     </Router>
   );
 }
 
 export default App
-
-// import { useState, useEffect } from 'react';
-// import axios from 'axios';
-
-// function App() {
-//   const [books, setBooks] = useState([]);
-
-//   useEffect(() => {
-//     axios.get('http://localhost:8000/books/')
-//       .then(response => {
-//         const fetchedBooks = response.data;
-//         setBooks(fetchedBooks);
-//       })
-//       .catch(error => console.log(error));
-//   }, []);
-
-//   return (
-//     <div>
-//       {Array.isArray(books) && books.map(book => (
-//         <div key={book.id}>
-//           <h2>{book.title}</h2>
-//           <p>{book.author}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default App;
