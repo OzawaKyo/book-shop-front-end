@@ -35,12 +35,27 @@
 .btn{
     margin-top: 1em;
 }
+.smiaaa{
+    display: flex;
+    gap: 2.5em;
+}
+.kniaaa{
+    display: flex;
+    flex-direction: column;
+}
+.i{
+    width: 280px;
+}
 @media (max-width: 650px) {
     .formm{
         width: 400px;
     }
     .inputt{
         width: 400px;
+    }
+    .smiaaa{
+        flex-direction: column;
+        gap: 0;
     }
 }
 @media (max-width: 450px) {
