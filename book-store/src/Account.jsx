@@ -32,10 +32,11 @@ export default function Account(){
     }
     
     return(
-        <div className="acc">
+        <div>
             <Navbar />
-            <div className="acc-container">
-                <div className="acc-left">
+            <div className="acca">
+            <div className="acca-container">
+                <div className="acca-left">
                     <div className="hi">
                         <h1 className="ini">MR</h1>
                         <div className="hi2">
@@ -70,11 +71,13 @@ export default function Account(){
                         <hr className="hr3"/>
                     </div>
                 </div>
-                <div className="acc-right">
+                <div className="acca-right">
                 <div>{authUser ? <p>{`Signed IN as ${authUser.email}` }</p>: <p>Signed Out</p>}</div>
 
                 </div>
             </div>
+        </div>
+
         </div>
     )
 } 

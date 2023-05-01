@@ -1,14 +1,15 @@
-.acc{
+.acca{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-.acc-container{
+.acca-container{
     /* background-color: blue; */
     margin: 5em;
     display: flex;
     gap: 4em;
 }
-.acc-left{
+.acca-left{
     width: 300px;
     height: 539px;
     background-color: white;
@@ -71,9 +72,8 @@
     margin-left: 1.5em;
 }
 
-.acc-right{
+.acca-right{
     background-color: white;
     width: 620px;
     border-radius: 2%;
-    margin-top: 2.7em;
 }
