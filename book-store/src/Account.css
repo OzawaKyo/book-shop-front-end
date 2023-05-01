@@ -78,6 +78,53 @@
 
 .acca-right{
     background-color: white;
-    width: 620px;
+    width: 650px;
     border-radius: 2%;
+    overflow-y: scroll;
+    height: 539px;
 }
+.layoutg{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+    justify-content: left;
+    margin: 1.5em;
+}  
+.ktabg{
+    cursor: pointer;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
+}
+svg {
+    display: none; /* Hide the SVG element */
+  }
+  
+.ktabg:hover{
+    filter: url(#red-filter);
+}
+.ktabg:hover  {
+    opacity: 0.3;
+    color: red;
+}
+.erdg:hover  {
+    cursor: pointer;
+    color: red;
+}
+.smiag{
+    width: 102px;
+    height: 38px;
+    text-align: center;
+    margin-top: 0.5;
+    font-size: 15px;
+}
+.erdg{
+    max-height:215px;
+    max-width: 102px;
+    display: flex !important;
+    flex-direction: column;
+}
+

@@ -8,49 +8,82 @@ import logout from '/logout.png'
 import { useNavigate } from "react-router-dom";
 import about from "/about.png"
 import heart from "/heart.png"
+import axios from 'axios';
+import redx from '/redx.png'
  
-export default function Account(){
 
+function deleteData(id) {
+    axios
+      .delete(`http://127.0.0.1:8000/cart/${id}`)
+      .then((response) => {
+        console.log("Data deleted:", response.data);
+        // Do something else, like updating state
+      })
+      .catch((error) => {
+        console.error("Error deleting data:", error);
+      });
+  }
+  
+  export default function Account() {
     const [cartItems, setCartItems] = useState([]);
-    const [authUser,setAuthUser]=useState(null);
-
-    useEffect(() => {
-        if (authUser && authUser.uid) {
-          fetch('http://127.0.0.1:8000/cart/')
-            .then(response => response.json())
-            .then(data => {
-              const filteredData = data.filter(item => item.user === authUser.uid);
-              setCartItems(filteredData);
-              console.log(filteredData);
-            })
-            .catch(error => {
-              console.error('Error:', error);
-            });
-        }
-      }, [authUser]);
-
-
+    const [authUser, setAuthUser] = useState(null);
+    const [books, setBooks] = useState([]);
+  
     const navigate = useNavigate();
-    useEffect(()=>{
-        const listen = onAuthStateChanged(auth,(user)=>{
-            if(user){
-                setAuthUser(user)
-            }else{
-                setAuthUser(null);
-            }
-        });
-        return()=>{
-            listen();
+  
+    useEffect(() => {
+      const listen = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setAuthUser(user);
+        } else {
+          setAuthUser(null);
         }
-    },[]);
-
-    const userSignOut = ()=>{
-        signOut(auth).then(()=>{
-            console.log('signed out');
-            navigate('/log');
-        }).catch(error => console.log(error))
+      });
+      return () => {
+        listen();
+      };
+    }, []);
+  
+    useEffect(() => {
+      if (authUser && authUser.uid) {
+        fetch("http://127.0.0.1:8000/cart/")
+          .then((response) => response.json())
+          .then((data) => {
+            const filteredData = data.filter((item) => item.user === authUser.uid);
+            setCartItems(filteredData);
+            console.log(cartItems);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    }, [authUser]);
+  
+    useEffect(() => {
+      fetch("http://127.0.0.1:8000/books/")
+        .then((response) => response.json())
+        .then((data) => {
+          setBooks(data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }, []);
+  
+    const userSignOut = () => {
+      signOut(auth)
+        .then(() => {
+          console.log("signed out");
+          navigate("/log");
+        })
+        .catch((error) => console.log(error));
+    };
+  
+    function handleDeleteClick(bookId) {
+      deleteData(bookId);
+      // Update the state of the component to remove the deleted item from the cart
+      setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.book !== bookId));
     }
-    
     return(
         <div>
             <Navbar />
@@ -95,8 +128,31 @@ export default function Account(){
                     </div>
                 </div>
                 <div className="acca-right">
-                                
-                </div>
+                    <h2 align='center'>My Cart</h2>
+                    <div className="layoutg">
+                    {Array.isArray(books) && books.map(book => (
+                        Array.isArray(cartItems) && cartItems.map(cart => (
+                                (book.id==cart.book)?
+                                <div className="erdg">
+                                    <img onClick={() => {handleDeleteClick(cart.id);window.location.reload();}} className='ktabg' width='100' height='150px' src={book.cover} alt=""/>
+                                    <h1 className='smiag' align='center'>{book.title}</h1>
+                                </div>  
+                                :<></>
+                            ))    
+                    ))}
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                        <filter id="red-filter">
+                        <feColorMatrix type="matrix"
+                            values="1 0 0 0 0
+                                    0 0 0 0 0
+                                    0 0 0 0 0
+                                    0 0 0 1 0" />
+                        </filter>
+                    </defs>
+                    </svg>             
+                                    </div>
             </div>
         </div>
 
