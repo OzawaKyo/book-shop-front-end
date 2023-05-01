@@ -6,9 +6,29 @@ import './Account.css'
 import cart from '/cart.png'
 import logout from '/logout.png'
 import { useNavigate } from "react-router-dom";
-
+import about from "/about.png"
+import heart from "/heart.png"
+ 
 export default function Account(){
+
+    const [cartItems, setCartItems] = useState([]);
     const [authUser,setAuthUser]=useState(null);
+
+    useEffect(() => {
+        if (authUser && authUser.uid) {
+          fetch('http://127.0.0.1:8000/cart/')
+            .then(response => response.json())
+            .then(data => {
+              const filteredData = data.filter(item => item.user === authUser.uid);
+              setCartItems(filteredData);
+              console.log(filteredData);
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+        }
+      }, [authUser]);
+
 
     const navigate = useNavigate();
     useEffect(()=>{
@@ -38,11 +58,15 @@ export default function Account(){
             <div className="acca-container">
                 <div className="acca-left">
                     <div className="hi">
-                        <h1 className="ini">MR</h1>
+                        {authUser && authUser.displayName ? (
+                        <h1 className="ini">{authUser.displayName.split(" ").map(name => name.charAt(0)).join("")}</h1>
+                        ) : (
+                        <h1 className="ini">G</h1>
+                        )}
                         <div className="hi2">
                             <h2 className="iw">Hi,</h2>
                             {authUser && authUser.displayName ? (
-                                <h2 className="iw2">{authUser.displayName}</h2>
+                                <h2 className="iw2">{authUser.displayName.split(" ")[0]}</h2>
                             ) : (
                                 <h2 className="iw2">Guest</h2>
                             )}
@@ -55,25 +79,23 @@ export default function Account(){
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
-                            <img src={logout} className="logogo" />
-                            <h2 className=" bb">Sign out</h2>
+                            <img src={heart} className="logogo" />
+                            <h2 className=" bb">WishList</h2>
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
-                            <img src={cart} className="logogo" />
-                            <h2 className="bb">Cart</h2>
+                            <img src={about} className="logogo" />
+                            <h2 className="bb">About us</h2>
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
                             <img src={logout} className="logogo" />
                             <h2 className="bb" onClick={userSignOut}>Sign out</h2>
                         </div>
-                        <hr className="hr3"/>
                     </div>
                 </div>
                 <div className="acca-right">
-                <div>{authUser ? <p>{`Signed IN as ${authUser.email}` }</p>: <p>Signed Out</p>}</div>
-
+                                
                 </div>
             </div>
         </div>

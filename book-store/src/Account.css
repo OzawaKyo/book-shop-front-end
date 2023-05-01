@@ -39,6 +39,10 @@
     font-size: 50px;
     position: relative;
     left: -1em;
+    text-transform: uppercase;
+    width:88px;
+    height: 67px;
+    text-align: center;
 }
 .iw{
     margin: 0;
