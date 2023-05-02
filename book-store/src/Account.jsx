@@ -100,7 +100,9 @@ function deleteData(id) {
                         <div className="hi2">
                             <h2 className="iw">Hi,</h2>
                             {authUser && authUser.displayName ? (
-                                <h2 className="iw2">{authUser.displayName.split(" ")[0]}</h2>
+<div>
+<h2 className="iw2 iww3">{authUser.displayName.split(" ")[0]}</h2><h2 className="iw2 iww2">{authUser.displayName}</h2>
+</div>                                
                             ) : (
                                 <h2 className="iw2">Guest</h2>
                             )}
@@ -119,7 +121,7 @@ function deleteData(id) {
                         <hr className="hr3"/>
                         <div className="b4">
                             <img src={about} className="logogo" />
-                            <h2 className="bb">About us</h2>
+                            <h2 onClick={()=>{navigate('/about')}} className="bb">About us</h2>
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
@@ -127,10 +129,38 @@ function deleteData(id) {
                             <h2 className="bb" onClick={userSignOut}>Sign out</h2>
                         </div>
                     </div>
+                    <div className="listt2">
+                      <hr className="hr3"/>
+                      <div className="lista">
+                        <div className="b4 b42">
+                              <img src={cart} className="logogo" />
+                              <h2 className="bb">Cart</h2>
+                          </div>
+                          <hr className="hr3"/>
+                          <div className="b4 b42">
+                              <img src={heart} className="logogo" />
+                              <h2 className=" bb">WishList</h2>
+                          </div>
+                      </div>
+                      <hr className="hr3"/>
+
+                        <div className="lista">
+                          <div className="b4 b42">
+                              <img src={about} className="logogo" />
+                              <h2 onClick={()=>{navigate('/about')}} className="bb">About us</h2>
+                          </div>
+                          <hr className="hr3"/>
+                          <div className="b4 b42">
+                              <img src={logout} className="logogo" />
+                              <h2 className="bb" onClick={userSignOut}>Sign out</h2>
+                          </div>
+                        </div>
+                        
+                    </div>
                 </div>
                 <div className="acca-limn">
                   <div className="acca-right">
-                      <h2 align='center'>My Cart</h2>
+                      <h2 className="underline" align='center'>My Cart</h2>
                       <div className="layoutg">
                       {Array.isArray(books) && books.map(book => (
                           Array.isArray(cartItems) && cartItems.map(cart => (
@@ -143,7 +173,7 @@ function deleteData(id) {
                               ))    
                       ))}
                       </div>
-                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                      <svg className="svgg" xmlns="http://www.w3.org/2000/svg" version="1.1">
                       <defs>
                           <filter id="red-filter">
                           <feColorMatrix type="matrix"
@@ -165,7 +195,7 @@ function deleteData(id) {
                               ))    
                       ))}
                         </div>
-                        <h1>Total : {total} MAD</h1>
+                        <h1 className=" www">Total : {total.toFixed(2)} MAD</h1>
                         <button className="button-39 bttt">Check In</button>
                   </div>
                 </div>
