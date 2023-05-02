@@ -30,7 +30,8 @@ function deleteData(id) {
     const [books, setBooks] = useState([]);
   
     const navigate = useNavigate();
-  
+    var total = 0;
+
     useEffect(() => {
       const listen = onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -127,32 +128,48 @@ function deleteData(id) {
                         </div>
                     </div>
                 </div>
-                <div className="acca-right">
-                    <h2 align='center'>My Cart</h2>
-                    <div className="layoutg">
-                    {Array.isArray(books) && books.map(book => (
-                        Array.isArray(cartItems) && cartItems.map(cart => (
-                                (book.id==cart.book)?
-                                <div className="erdg">
-                                    <img onClick={() => {handleDeleteClick(cart.id);window.location.reload();}} className='ktabg' width='100' height='150px' src={book.cover} alt=""/>
-                                    <h1 className='smiag' align='center'>{book.title}</h1>
-                                </div>  
-                                :<></>
-                            ))    
-                    ))}
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <defs>
-                        <filter id="red-filter">
-                        <feColorMatrix type="matrix"
-                            values="1 0 0 0 0
-                                    0 0 0 0 0
-                                    0 0 0 0 0
-                                    0 0 0 1 0" />
-                        </filter>
-                    </defs>
-                    </svg>             
-                                    </div>
+                <div className="acca-limn">
+                  <div className="acca-right">
+                      <h2 align='center'>My Cart</h2>
+                      <div className="layoutg">
+                      {Array.isArray(books) && books.map(book => (
+                          Array.isArray(cartItems) && cartItems.map(cart => (
+                                  (book.id==cart.book)?
+                                  <div className="erdg">
+                                      <img onClick={() => {handleDeleteClick(cart.id);window.location.reload();}} className='ktabg' width='100' height='150px' src={book.cover} alt=""/>
+                                      <h1 className='smiag' align='center'>{book.title}</h1>
+                                  </div>  
+                                  :<></>
+                              ))    
+                      ))}
+                      </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                      <defs>
+                          <filter id="red-filter">
+                          <feColorMatrix type="matrix"
+                              values="1 0 0 0 0
+                                      0 0 0 0 0
+                                      0 0 0 0 0
+                                      0 0 0 1 0" />
+                          </filter>
+                      </defs>
+                      </svg>             
+                  </div>
+                  <div className="lte7t">
+                        <div className="hiddd">
+                        {Array.isArray(books) && books.map(book => (
+                          Array.isArray(cartItems) && cartItems.map(cart => (
+                                  (book.id==cart.book)?
+                                  total = parseFloat(total)+ parseFloat(book.price) 
+                                  :<></>
+                              ))    
+                      ))}
+                        </div>
+                        <h1>Total : {total} MAD</h1>
+                        <button className="button-39 bttt">Check In</button>
+                  </div>
+                </div>
+                
             </div>
         </div>
 

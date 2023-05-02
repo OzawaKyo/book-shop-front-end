@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 .acca-container{
     /* background-color: blue; */
@@ -75,13 +76,28 @@
 .logogo{
     margin-left: 1.5em;
 }
-
+.acca-limn{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
 .acca-right{
     background-color: white;
     width: 650px;
     border-radius: 2%;
     overflow-y: scroll;
-    height: 539px;
+    height: 447px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lte7t{
+    background-color: white;
+    width: 633px;
+    border-radius: 2%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 .layoutg{
     display: flex;
@@ -127,4 +143,17 @@ svg {
     display: flex !important;
     flex-direction: column;
 }
-
+@media (max-width: 1200px) {
+    .acca-container{
+        margin-left: 0;
+        margin-right: 0;
+        /* flex-direction: column; */
+    }
+    
+}
+.hiddd{
+    display: none;
+}
+.bttt{
+    width: 200px;
+}
