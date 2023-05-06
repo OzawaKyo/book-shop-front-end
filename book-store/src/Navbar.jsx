@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import { useState, useEffect ,useRef } from 'react';
 import { auth } from "./firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import account from '/account.png'
+import account from '/shopping.png'
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ export default function Navbar() {
           <hr className="nav-hr hidden" />
           <h1 className="hidden">About us</h1>
           <hr className="nav-hr hidden " />
-          <img src={logo} alt="" width="120" className="logoo hidee " onClick={() => { navigate('/'); }} />
+          <img src={logo} alt="" width="120" className="logoo hidee " onClick={() => { navigate('/shop'); }} />
         </div>
         <img src={logo} alt="" width="120" className="logoo hidden" onClick={() => { navigate('/'); }} />
 

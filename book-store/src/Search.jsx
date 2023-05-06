@@ -10,7 +10,7 @@ export default function Search() {
 
 
   useEffect(() => {
-    axios.get('http://localhost:8000/books/')
+    axios.get('https://book-shop-api.herokuapp.com/books/')
       .then(response => {
         const fetchedBooks = response.data;
         // filter the books based on the search query

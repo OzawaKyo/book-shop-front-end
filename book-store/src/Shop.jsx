@@ -11,7 +11,7 @@ import {useNavigate } from 'react-router-dom'
 export default function Shop() {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-        axios.get('http://localhost:8000/books/')
+        axios.get('https://book-shop-api.herokuapp.com/books/')
           .then(response => {
             const fetchedBooks = response.data;
             setBooks(fetchedBooks);

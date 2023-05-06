@@ -14,7 +14,7 @@ function Book() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/books/${id}`)
+    axios.get(`https://book-shop-api.herokuapp.com/books/${id}`)
       .then(response => {
         const fetchedBook = response.data;
         setBook(fetchedBook);
@@ -50,7 +50,7 @@ function Book() {
       const book_id = id;
       const data = {'user':user_id,'book':book_id}
       
-      fetch('http://localhost:8000/cart/', {
+      fetch('https://book-shop-api.herokuapp.com/cart/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)

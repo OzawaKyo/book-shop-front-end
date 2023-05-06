@@ -14,7 +14,7 @@ import redx from '/redx.png'
 
 function deleteData(id) {
     axios
-      .delete(`http://127.0.0.1:8000/cart/${id}`)
+      .delete(`https://book-shop-api.herokuapp.com/cart/${id}`)
       .then((response) => {
         console.log("Data deleted:", response.data);
         // Do something else, like updating state
@@ -47,7 +47,7 @@ function deleteData(id) {
   
     useEffect(() => {
       if (authUser && authUser.uid) {
-        fetch("http://127.0.0.1:8000/cart/")
+        fetch("https://book-shop-api.herokuapp.com/cart/")
           .then((response) => response.json())
           .then((data) => {
             const filteredData = data.filter((item) => item.user === authUser.uid);
@@ -61,7 +61,7 @@ function deleteData(id) {
     }, [authUser]);
   
     useEffect(() => {
-      fetch("http://127.0.0.1:8000/books/")
+      fetch("https://book-shop-api.herokuapp.com/books/")
         .then((response) => response.json())
         .then((data) => {
           setBooks(data);

@@ -12,7 +12,7 @@ export default function Add() {
     event.preventDefault();
     const data = { title, author, price, description, cover };
     
-    fetch('http://localhost:8000/books/', {
+    fetch('https://book-shop-api.herokuapp.com/books/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
