@@ -4,6 +4,7 @@ import books from '/books.png';
 import book from '/hamid.png';
 import key from '/key2.png';
 import './Acceuil.css';
+import { motion } from 'framer-motion';
 
 export default function Acceuil() {
   const navigate = useNavigate();
@@ -17,15 +18,18 @@ export default function Acceuil() {
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-        handleSearch();
-      
+      handleSearch();
     }
   };
-  
 
   return (
     <div className='acceuil'>
-      <div className='acc-left'>
+      <motion.div
+        className='acc-left'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <h2 className='best'>Best choice</h2>
         <img src={books} alt='' className='books' />
         <div className='goto hide'>
@@ -53,27 +57,33 @@ export default function Acceuil() {
             help you make up your mind and find a book for fun activities
           </p>
         </div>
-      </div>
-      <img src={book} alt='' className='book' />
-      <img src={key} alt='' className='no-img digi' />
-      <div className='goto hh no-img'>
-        {/* <div className='enter-container'>
-          <input
-            type='text'
-            placeholder='Search'
-            className='enter-input'
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-          <span className='arrow-icon' onClick={handleSearch}>
-            &#10132;
-          </span>
-        </div> */}
+      </motion.div>
+      <motion.img
+        src={book}
+        alt=''
+        className='book'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      />
+      <motion.img
+        src={key}
+        alt=''
+        className='no-img digi'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      />
+      <motion.div
+        className='goto hh no-img'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+      >
         <button className='go' onClick={() => navigate('/Shop')}>
           Go to shop
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }
