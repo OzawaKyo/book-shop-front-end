@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import './Search.css'
+import { API_URL } from './config.js';
 
 export default function Search() {
   const { name } = useParams();
@@ -10,7 +11,7 @@ export default function Search() {
 
 
   useEffect(() => {
-    axios.get('https://book-shop-api.herokuapp.com/books/')
+    axios.get(`${API_URL}/books/`)
       .then(response => {
         const fetchedBooks = response.data;
         // filter the books based on the search query

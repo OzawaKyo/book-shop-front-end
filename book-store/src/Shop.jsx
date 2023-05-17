@@ -7,11 +7,12 @@ import death from '/death.png'
 import john from '/john.jpg'
 import omni from '/omni.jpg'
 import {useNavigate } from 'react-router-dom'
+import { API_URL } from './config.js';
 
 export default function Shop() {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-        axios.get('https://book-shop-api.herokuapp.com/books/')
+        axios.get(`${API_URL}/books/`)
           .then(response => {
             const fetchedBooks = response.data;
             setBooks(fetchedBooks);

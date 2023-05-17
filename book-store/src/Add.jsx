@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './Add.css'
+import './Add.css';
+import { API_URL } from './config.js';
+import { storage } from './firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function Add() {
   const [title, setTitle] = useState('');
@@ -8,32 +11,47 @@ export default function Add() {
   const [description, setDescription] = useState('');
   const [cover, setCover] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = { title, author, price, description, cover };
-    
-    fetch('https://book-shop-api.herokuapp.com/books/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.error(error);
+
+    const imageUpload = event.target.elements.imageUpload.files[0];
+
+    if (!imageUpload) {
+      return;
+    }
+
+    const imageRef = ref(storage, `images/${imageUpload.name}`);
+    await uploadBytes(imageRef, imageUpload);
+
+    const imageUrl = await getDownloadURL(imageRef);
+    setCover(imageUrl);
+
+    const data = { title, author, price, description, cover: imageUrl };
+
+    try {
+      const response = await fetch(`${API_URL}/books/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
+
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="title" />
-      <input type="text" name="author" value={author} onChange={e => setAuthor(e.target.value)} placeholder="author" />
-      <input type="text" name="price" value={price} onChange={e => setPrice(e.target.value)} placeholder="price" />
-      <input type="text" name="description" value={description} onChange={e => setDescription(e.target.value)} placeholder="description" />
-      <input type="text" name="cover" value={cover} onChange={e => setCover(e.target.value)} placeholder="cover" />
-      <button type="submit">submit</button>
+    <form className="add1" onSubmit={handleSubmit}>
+      <input className="inp1" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
+      <input className="inp1" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" required />
+      <input className="inp1" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" required />
+      <textarea className="inp1" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required />
+      <div className="upl">
+        <input className="inp1" type="file" name="imageUpload" required />
+      </div>
+      <button className="button-39" type="submit">Add Book</button>
     </form>
   );
 }

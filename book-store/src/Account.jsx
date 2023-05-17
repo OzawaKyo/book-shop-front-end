@@ -10,11 +10,13 @@ import about from "/about.png"
 import heart from "/heart.png"
 import axios from 'axios';
 import redx from '/redx.png'
- 
+import { API_URL } from './config.js';
+import Add from "./Add";
+
 
 function deleteData(id) {
     axios
-      .delete(`https://book-shop-api.herokuapp.com/cart/${id}`)
+      .delete(`${API_URL}/cart/${id}`)
       .then((response) => {
         console.log("Data deleted:", response.data);
         // Do something else, like updating state
@@ -47,7 +49,7 @@ function deleteData(id) {
   
     useEffect(() => {
       if (authUser && authUser.uid) {
-        fetch("https://book-shop-api.herokuapp.com/cart/")
+        fetch(`${API_URL}/cart/`)
           .then((response) => response.json())
           .then((data) => {
             const filteredData = data.filter((item) => item.user === authUser.uid);
@@ -61,7 +63,7 @@ function deleteData(id) {
     }, [authUser]);
   
     useEffect(() => {
-      fetch("https://book-shop-api.herokuapp.com/books/")
+      fetch(`${API_URL}/books/`)
         .then((response) => response.json())
         .then((data) => {
           setBooks(data);
@@ -85,6 +87,20 @@ function deleteData(id) {
       // Update the state of the component to remove the deleted item from the cart
       setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.book !== bookId));
     }
+
+
+    const [add,isAdd] = useState(false)
+    const [cartt,isCart] = useState(true)
+
+    function handleAdd() {
+        isAdd(true);
+        isCart(false)
+    }
+    function handleCart() {
+      isAdd(false);
+      isCart(true)
+  }
+
     return(
         <div>
             <Navbar />
@@ -100,23 +116,23 @@ function deleteData(id) {
                         <div className="hi2">
                             <h2 className="iw">Hi,</h2>
                             {authUser && authUser.displayName ? (
-<div>
-<h2 className="iw2 iww3">{authUser.displayName.split(" ")[0]}</h2><h2 className="iw2 iww2">{authUser.displayName}</h2>
-</div>                                
+                            <div>
+                            <h2 className="iw2 iww3">{authUser.displayName.split(" ")[0]}</h2><h2 className="iw2 iww2">{authUser.displayName}</h2>
+                            </div>                                
                             ) : (
                                 <h2 className="iw2">Guest</h2>
                             )}
                         </div>
                     </div>
                     <div className="listt">
-                        <div className="b4">
+                        <div className="b4" onClick={handleCart}>
                             <img src={cart} className="logogo" />
                             <h2 className="bb">Cart</h2>
                         </div>
                         <hr className="hr3"/>
-                        <div className="b4">
+                        <div className="b4" onClick={handleAdd}>
                             <img src={heart} className="logogo" />
-                            <h2 className=" bb">WishList</h2>
+                            <h2 className=" bb">Add</h2>
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
@@ -160,31 +176,44 @@ function deleteData(id) {
                 </div>
                 <div className="acca-limn">
                   <div className="acca-right">
-                      <h2 className="underline" align='center'>My Cart</h2>
-                      <div className="layoutg">
-                      {Array.isArray(books) && books.map(book => (
-                          Array.isArray(cartItems) && cartItems.map(cart => (
-                                  (book.id==cart.book)?
-                                  <div className="erdg">
-                                      <img onClick={() => {handleDeleteClick(cart.id);window.location.reload();}} className='ktabg' width='100' height='150px' src={book.cover} alt=""/>
-                                      <h1 className='smiag' align='center'>{book.title}</h1>
-                                  </div>  
-                                  :<></>
-                              ))    
-                      ))}
-                      </div>
-                      <svg className="svgg" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                      <defs>
-                          <filter id="red-filter">
-                          <feColorMatrix type="matrix"
-                              values="1 0 0 0 0
-                                      0 0 0 0 0
-                                      0 0 0 0 0
-                                      0 0 0 1 0" />
-                          </filter>
-                      </defs>
-                      </svg>             
+                      {(
+                        cartt? <div>
+                                  <h2 className="underline" align='center'>My Cart</h2>
+                                  <div className="layoutg">
+                                  {Array.isArray(books) && books.map(book => (
+                                      Array.isArray(cartItems) && cartItems.map(cart => (
+                                              (book.id==cart.book)?
+                                              <div className="erdg">
+                                                  <img onClick={() => {handleDeleteClick(cart.id);window.location.reload();}} className='ktabg' width='100' height='150px' src={book.cover} alt=""/>
+                                                  <h1 className='smiag' align='center'>{book.title}</h1>
+                                              </div>  
+                                              :<></>
+                                          ))    
+                                  ))}
+                                  </div>
+                                  <svg className="svgg" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                  <defs>
+                                      <filter id="red-filter">
+                                      <feColorMatrix type="matrix"
+                                          values="1 0 0 0 0
+                                                  0 0 0 0 0
+                                                  0 0 0 0 0
+                                                  0 0 0 1 0" />
+                                      </filter>
+                                  </defs>
+                                  </svg>
+                              </div>
+                              :<div>
+                                  <h2 align='center'>Add books</h2>
+                                  <Add />
+                              </div>
+                      )}
+                      
+                                   
                   </div>
+
+
+
                   <div className="lte7t">
                         <div className="hiddd">
                         {Array.isArray(books) && books.map(book => (
