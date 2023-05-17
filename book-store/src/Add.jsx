@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useEffect , useState } from "react";
 import './Add.css';
 import { API_URL } from './config.js';
 import { storage } from './firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+import {useNavigate} from 'react-router-dom'
 
 export default function Add() {
   const [title, setTitle] = useState('');
@@ -10,6 +12,8 @@ export default function Add() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [cover, setCover] = useState('');
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,13 +41,16 @@ export default function Add() {
 
       const responseData = await response.json();
       console.log(responseData);
+      navigate(`/Shop`);
     } catch (error) {
       console.error(error);
     }
   };
 
+
+
   return (
-    <form className="add1" onSubmit={handleSubmit}>
+      <form className="add1" onSubmit={handleSubmit}>
       <input className="inp1" type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
       <input className="inp1" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" required />
       <input className="inp1" type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Price" required />
@@ -53,5 +60,7 @@ export default function Add() {
       </div>
       <button className="button-39" type="submit">Add Book</button>
     </form>
+
+    
   );
 }

@@ -132,7 +132,7 @@ function deleteData(id) {
                         <hr className="hr3"/>
                         <div className="b4" onClick={handleAdd}>
                             <img src={heart} className="logogo" />
-                            <h2 className=" bb">Add</h2>
+                            <h2 className=" bb">Add Books</h2>
                         </div>
                         <hr className="hr3"/>
                         <div className="b4">
@@ -211,22 +211,22 @@ function deleteData(id) {
                       
                                    
                   </div>
-
-
-
-                  <div className="lte7t">
-                        <div className="hiddd">
-                        {Array.isArray(books) && books.map(book => (
-                          Array.isArray(cartItems) && cartItems.map(cart => (
-                                  (book.id==cart.book)?
-                                  total = parseFloat(total)+ parseFloat(book.price) 
-                                  :<></>
-                              ))    
-                      ))}
+                  {(
+                    cartt?<div className="lte7t">
+                              <div className="hiddd">
+                              {Array.isArray(books) && books.map(book => (
+                                Array.isArray(cartItems) && cartItems.map(cart => (
+                                        (book.id==cart.book)?
+                                        total = parseFloat(total)+ parseFloat(book.price) 
+                                        :<></>
+                                    ))    
+                            ))}
+                              </div>
+                              <h1 className=" www">Total : {total.toFixed(2)} MAD</h1>
+                              <button className="button-39 bttt">Check In</button>
                         </div>
-                        <h1 className=" www">Total : {total.toFixed(2)} MAD</h1>
-                        <button className="button-39 bttt">Check In</button>
-                  </div>
+                      : <h1></h1>
+                )}
                 </div>
                 
             </div>
