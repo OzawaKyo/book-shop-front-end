@@ -13,6 +13,8 @@ import { motion } from 'framer-motion';
 
 export default function Shop() {
   const [books, setBooks] = useState([]);
+  
+  
   useEffect(() => {
     axios
       .get(`${API_URL}/books/`)
@@ -39,6 +41,9 @@ export default function Shop() {
           <h4 className='explore'>Explore new worlds from authors</h4>
           <div className='book-list'>
             <motion.img
+              onClick={() => {
+                navigate(`/shop/23`);
+              }}
               src={death}
               width='210'
               className='bookz'
@@ -47,6 +52,9 @@ export default function Shop() {
               transition={{ duration: 0.8, delay: 0.4 }}
             />
             <motion.img
+            onClick={() => {
+              navigate(`/shop/22`);
+            }}
               src={john}
               width='210'
               className='bookz'
@@ -55,6 +63,9 @@ export default function Shop() {
               transition={{ duration: 0.8, delay: 0.6 }}
             />
             <motion.img
+            onClick={() => {
+              navigate(`/shop/21`);
+            }}
               src={omni}
               width='210'
               className='bookz'
@@ -65,6 +76,9 @@ export default function Shop() {
           </div>
         </motion.div>
         <motion.div
+          onClick={() => {
+            navigate(`/shop/24`);
+          }}
           className='mura'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -81,7 +95,7 @@ export default function Shop() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          Spring Collection
+          Summer Collection
         </motion.h1>
         <div className='layout'>
           {Array.isArray(books) &&

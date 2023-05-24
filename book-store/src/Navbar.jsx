@@ -74,7 +74,7 @@ export default function Navbar() {
             Shop
           </h1>
           <hr className="nav-hr hidden" />
-          <h1 className="hidden">About us</h1>
+          <h1 className="hidden" onClick={() => navigate('/About')} >About us</h1>
           <hr className="nav-hr hidden " />
           <img
             src={logo}

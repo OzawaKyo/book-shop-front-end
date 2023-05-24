@@ -53,7 +53,7 @@ export default function Acceuil() {
         <div className='parag'>
           <p className='par'>
             Regular reading allows you to better formulate your own thoughts.
-            Our <span className='team'>team of professionals</span> will always
+            Our <span className='team'onClick={() => navigate('/About')} >team of professionals</span> will always
             help you make up your mind and find a book for fun activities
           </p>
         </div>

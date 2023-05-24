@@ -45,7 +45,7 @@ export default function Search() {
                     </div>
                     ))}
 
-                        {(name=='porno')?
+                        {(name=='hhh')?
                         <img src="https://firebasestorage.googleapis.com/v0/b/book-shop-a252c.appspot.com/o/WhatsApp%20Image%202023-04-15%20at%2015.15.10.jpg?alt=media&token=9c205132-05d5-4882-a01d-cc137f777731" alt="" />
                         :<p></p>
                         }

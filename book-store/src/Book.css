@@ -84,6 +84,10 @@
     cursor: pointer;
     font-size: 14px;
 }
+.book-description--full{
+    height: 200px ;
+}
+
 @media (max-width: 1000px) {
     
     .chri{

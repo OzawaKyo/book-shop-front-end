@@ -97,7 +97,7 @@ import { API_URL } from './config.js';
                 )}
               </div>
               <hr className='ster' />
-              {addedToCart?<p>added</p>:<button type='submit' onClick={addToCart} className='button-39'>ADD TO CART</button>  }
+              {addedToCart?<p className='button-39'>added</p>:<button type='submit' onClick={addToCart} className='button-39'>ADD TO CART</button>  }
             </div>
           </div>
         )}
