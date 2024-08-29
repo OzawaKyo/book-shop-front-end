@@ -29,6 +29,7 @@ Book Store est une application web qui permet aux utilisateurs de parcourir, rec
 
 ## Utilisation
 
+Voici le lien de l'appli : https://book-shop-a252c.web.app/ 
 Une fois l'application démarrée, vous pouvez naviguer sur le site, rechercher des livres, et utiliser toutes les fonctionnalités disponibles. Vous pouvez également créer un compte pour accéder à des fonctionnalités supplémentaires comme l'historique des commandes.
 
 **Note :** Le back-end n'est pas en ligne actuellement, donc les livres ne s'affichent pas sur le site.
